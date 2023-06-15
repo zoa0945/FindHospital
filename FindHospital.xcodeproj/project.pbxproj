@@ -43,6 +43,9 @@
 		8E2DEB692A3AE2AE00D4A32C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2DEB682A3AE2AE00D4A32C /* libc++.tbd */; };
 		8E2DEB6B2A3AE2B800D4A32C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2DEB6A2A3AE2B800D4A32C /* libxml2.tbd */; };
 		8E2DEB6D2A3AE2C000D4A32C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2DEB6C2A3AE2C000D4A32C /* libsqlite3.tbd */; };
+		8E2DEB712A3AE6CF00D4A32C /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB702A3AE6CF00D4A32C /* LocationData.swift */; };
+		8E2DEB732A3AE71000D4A32C /* KLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB722A3AE71000D4A32C /* KLDocument.swift */; };
+		8E2DEB752A3AE7E600D4A32C /* DetailListCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB742A3AE7E600D4A32C /* DetailListCellData.swift */; };
 		8E8164972A3781520068E49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8164962A3781520068E49E /* AppDelegate.swift */; };
 		8E8164992A3781520068E49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8164982A3781520068E49E /* SceneDelegate.swift */; };
 		8E8164A02A3781540068E49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E81649F2A3781540068E49E /* Assets.xcassets */; };
@@ -97,6 +100,9 @@
 		8E2DEB6A2A3AE2B800D4A32C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		8E2DEB6C2A3AE2C000D4A32C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8E2DEB6E2A3AE43400D4A32C /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		8E2DEB702A3AE6CF00D4A32C /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		8E2DEB722A3AE71000D4A32C /* KLDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLDocument.swift; sourceTree = "<group>"; };
+		8E2DEB742A3AE7E600D4A32C /* DetailListCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListCellData.swift; sourceTree = "<group>"; };
 		8E8164932A3781520068E49E /* FindHospital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindHospital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8164962A3781520068E49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E8164982A3781520068E49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +208,24 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		8E2DEB6F2A3AE67E00D4A32C /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				8E8164AA2A3781A20068E49E /* HPInfoViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		8E2DEB762A3AE81700D4A32C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8E2DEB702A3AE6CF00D4A32C /* LocationData.swift */,
+				8E2DEB722A3AE71000D4A32C /* KLDocument.swift */,
+				8E2DEB742A3AE7E600D4A32C /* DetailListCellData.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		8E81648A2A3781510068E49E = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +250,8 @@
 				8E2DEB6E2A3AE43400D4A32C /* BridgingHeader.h */,
 				8E8164962A3781520068E49E /* AppDelegate.swift */,
 				8E8164982A3781520068E49E /* SceneDelegate.swift */,
-				8E8164AA2A3781A20068E49E /* HPInfoViewController.swift */,
+				8E2DEB762A3AE81700D4A32C /* Entity */,
+				8E2DEB6F2A3AE67E00D4A32C /* Scene */,
 				8E81649F2A3781540068E49E /* Assets.xcassets */,
 				8E8164A12A3781540068E49E /* LaunchScreen.storyboard */,
 				8E8164A42A3781540068E49E /* Info.plist */,
@@ -384,8 +409,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2DEB712A3AE6CF00D4A32C /* LocationData.swift in Sources */,
+				8E2DEB732A3AE71000D4A32C /* KLDocument.swift in Sources */,
 				8E8164972A3781520068E49E /* AppDelegate.swift in Sources */,
 				8E8164992A3781520068E49E /* SceneDelegate.swift in Sources */,
+				8E2DEB752A3AE7E600D4A32C /* DetailListCellData.swift in Sources */,
 				8E8164AB2A3781A20068E49E /* HPInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoa0945.FindHospital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/zoa0945/Desktop/swift/FindHospital/FindHospital/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -577,6 +606,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoa0945.FindHospital;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/zoa0945/Desktop/swift/FindHospital/FindHospital/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

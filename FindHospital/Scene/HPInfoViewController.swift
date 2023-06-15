@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
 import RxSwift
 import RxCocoa
+import SnapKit
 
 class HPInfoViewController: UIViewController {
     let disposeBag = DisposeBag()
+    
+    let locationManager = CLLocationManager()
+    let mapView = MTMapView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
