@@ -36,6 +36,15 @@ class HPInfoViewController: UIViewController {
         currentLocationButton.rx.tap
             .bind(to: viewModel.currentLocationButtonTapped)
             .disposed(by: disposeBag)
+        
+        // MapView의 MapCenterPoint로 이동
+        viewModel.setMapCenter
+            .emit(to: mapView.rx.setMapCenterPoint)
+            .disposed(by: disposeBag)
+        
+        viewModel.errorMessage
+            .emit(to: self.rx.presentAlert)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -88,7 +97,7 @@ extension HPInfoViewController: CLLocationManagerDelegate {
              .notDetermined:
             return
         default:
-            // viewModel.mapViewError.accept()
+            viewModel.mapViewError.accept(MTMapViewError.locationAuthorizationDenied.errorDescription)
             return
         }
     }
@@ -99,28 +108,51 @@ extension HPInfoViewController: MTMapViewDelegate {
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
         // 시뮬레이터에서 사용 할 때: 임의의 현재위치를 설정 해주어야 함
         #if DEBUG
-        // viewModel.currentLocation.accept()
+        let lat = 37.394225
+        let lon = 127.110341
+        viewModel.currentLocation.accept(MTMapPoint(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon)))
         
         // 일반 기기에서 사용할 때: 현재 위치를 그대로 받을 수 있도록 설정
         #else
-        // viewModel.currentLocation.accept(location)
+        viewModel.currentLocation.accept(location)
         
         #endif
     }
     
     // 지도를 드래그해서 위치를 설정하는 행위가 끝났을 때의 centerpoint를 전달
     func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
-        // viewModel.mapCenterPoint.accept(mapCenterPoint)
+        viewModel.mapCenterPoint.accept(mapCenterPoint)
     }
     
     // pin표시 된 item을 선택 할 때마다 MTMapPOIItme을 전달
     func mapView(_ mapView: MTMapView!, selectedPOIItem poiItem: MTMapPOIItem!) -> Bool {
-        // viewModel.selectPOIItem.accept(poiItem)
+        viewModel.selectedPOIItem.accept(poiItem)
         return false
     }
     
     // 제대로된 현재 위치를 받아오지 못했을 때 에러를 발생
     func mapView(_ mapView: MTMapView!, failedUpdatingCurrentLocationWithError error: Error!) {
-        // viewModel.mapViewError.accept(error.localizedDescription)
+        viewModel.mapViewError.accept(error.localizedDescription)
+    }
+}
+
+extension Reactive where Base: MTMapView {
+    var setMapCenterPoint: Binder<MTMapPoint> {
+        return Binder(base) { base, point in
+            base.setMapCenter(point, animated: true)
+        }
+    }
+}
+
+extension Reactive where Base: UIViewController {
+    var presentAlert: Binder<String> {
+        return Binder(base) { base, message in
+            let alertController = UIAlertController(title: "문제가 발생했습니다.", message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default)
+            
+            alertController.addAction(action)
+            
+            base.present(alertController, animated: true)
+        }
     }
 }
