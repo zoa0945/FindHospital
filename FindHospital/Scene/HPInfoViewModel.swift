@@ -52,6 +52,7 @@ class HPInfoViewModel {
         
         let currentMapCenter = Observable
             .merge(
+                selectDetailListItem,
                 currentLocation.take(1),
                 moveToCurrentLocation
             )
@@ -61,5 +62,13 @@ class HPInfoViewModel {
         
         errorMessage = mapViewError.asObservable()
             .asSignal(onErrorJustReturn: "잠시 후 다시 시도해주세요.")
+        
+        detailListCellData = Driver.just([])
+        
+        scrollToSelectedLocation = selectedPOIItem
+            .map({ poiItem in
+                return poiItem.tag
+            })
+            .asSignal(onErrorJustReturn: 0)
     }
 }

@@ -18,6 +18,7 @@ class HPInfoViewController: UIViewController {
     let mapView = MTMapView()
     let currentLocationButton = UIButton()
     let detailList = UITableView()
+    let detailListBackgroundView = DetailListBackgroundView()
     let viewModel = HPInfoViewModel()
     
     override func viewDidLoad() {
@@ -32,6 +33,8 @@ class HPInfoViewController: UIViewController {
     }
     
     func bind(_ viewModel: HPInfoViewModel) {
+        detailListBackgroundView.bind(viewModel.detailListBackgroundViewModel)
+        
         // currentLocationButton이 눌러졌을 때의 이벤트
         currentLocationButton.rx.tap
             .bind(to: viewModel.currentLocationButtonTapped)
@@ -45,6 +48,31 @@ class HPInfoViewController: UIViewController {
         viewModel.errorMessage
             .emit(to: self.rx.presentAlert)
             .disposed(by: disposeBag)
+        
+        // cellData를 detailList에 표현
+        viewModel.detailListCellData
+            .drive(detailList.rx.items) { tv, row, data in
+                guard let cell = tv.dequeueReusableCell(withIdentifier: "DetailListCell", for: IndexPath(row: row, section: 0)) as? DetailListCell else { return UITableViewCell() }
+                
+                cell.setData(data)
+                return cell
+            }
+            .disposed(by: disposeBag)
+        
+        // cellData를 mapView에 redPin으로 표현
+        viewModel.detailListCellData
+            .map { $0.compactMap { $0.point } }
+            .drive(self.rx.addPOIItems)
+            .disposed(by: disposeBag)
+        
+        detailList.rx.itemSelected
+            .map { $0.row }
+            .bind(to: viewModel.detailListItemSeleted)
+            .disposed(by: disposeBag)
+        
+        viewModel.scrollToSelectedLocation
+            .emit(to: self.rx.showSelectedLocation)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -57,6 +85,10 @@ class HPInfoViewController: UIViewController {
         currentLocationButton.setImage(UIImage(systemName: "location.fill"), for: .normal)
         currentLocationButton.backgroundColor = .systemBackground
         currentLocationButton.layer.cornerRadius = 20
+        
+        detailList.register(DetailListCell.self, forCellReuseIdentifier: "DetailListCell")
+        detailList.separatorStyle = .none
+        detailList.backgroundView = detailListBackgroundView
     }
     
     private func layout() {
@@ -144,7 +176,7 @@ extension Reactive where Base: MTMapView {
     }
 }
 
-extension Reactive where Base: UIViewController {
+extension Reactive where Base: HPInfoViewController {
     var presentAlert: Binder<String> {
         return Binder(base) { base, message in
             let alertController = UIAlertController(title: "문제가 발생했습니다.", message: message, preferredStyle: .alert)
@@ -153,6 +185,33 @@ extension Reactive where Base: UIViewController {
             alertController.addAction(action)
             
             base.present(alertController, animated: true)
+        }
+    }
+    
+    var showSelectedLocation: Binder<Int> {
+        return Binder(base) { base, row in
+            let indexPath = IndexPath(row: row, section: 0)
+            base.detailList.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+        }
+    }
+    
+    var addPOIItems: Binder<[MTMapPoint]> {
+        return Binder(base) { base, point in
+            let items = point
+                .enumerated()
+                .map { offset, point -> MTMapPOIItem in
+                    let mapPOIItem = MTMapPOIItem()
+                    
+                    mapPOIItem.mapPoint = point
+                    mapPOIItem.markerType = .redPin
+                    mapPOIItem.showAnimationType = .springFromGround
+                    mapPOIItem.tag = offset
+                    
+                    return mapPOIItem
+                }
+            
+            base.mapView.removeAllPOIItems()
+            base.mapView.addPOIItems(items)
         }
     }
 }
