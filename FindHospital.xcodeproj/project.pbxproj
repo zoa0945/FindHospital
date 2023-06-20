@@ -48,6 +48,9 @@
 		8E2DEB752A3AE7E600D4A32C /* DetailListCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB742A3AE7E600D4A32C /* DetailListCellData.swift */; };
 		8E2DEB822A3AEB2A00D4A32C /* HPInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB812A3AEB2A00D4A32C /* HPInfoViewModel.swift */; };
 		8E2DEB842A3AF24900D4A32C /* MTMapViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB832A3AF24900D4A32C /* MTMapViewError.swift */; };
+		8E2DEB862A41CA9E00D4A32C /* DetailListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB852A41CA9E00D4A32C /* DetailListCell.swift */; };
+		8E2DEB882A41CC5700D4A32C /* DetailListBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB872A41CC5700D4A32C /* DetailListBackgroundView.swift */; };
+		8E2DEB8A2A41CCD000D4A32C /* DetailListBackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DEB892A41CCD000D4A32C /* DetailListBackgroundViewModel.swift */; };
 		8E8164972A3781520068E49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8164962A3781520068E49E /* AppDelegate.swift */; };
 		8E8164992A3781520068E49E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8164982A3781520068E49E /* SceneDelegate.swift */; };
 		8E8164A02A3781540068E49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E81649F2A3781540068E49E /* Assets.xcassets */; };
@@ -107,6 +110,9 @@
 		8E2DEB742A3AE7E600D4A32C /* DetailListCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListCellData.swift; sourceTree = "<group>"; };
 		8E2DEB812A3AEB2A00D4A32C /* HPInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPInfoViewModel.swift; sourceTree = "<group>"; };
 		8E2DEB832A3AF24900D4A32C /* MTMapViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMapViewError.swift; sourceTree = "<group>"; };
+		8E2DEB852A41CA9E00D4A32C /* DetailListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListCell.swift; sourceTree = "<group>"; };
+		8E2DEB872A41CC5700D4A32C /* DetailListBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListBackgroundView.swift; sourceTree = "<group>"; };
+		8E2DEB892A41CCD000D4A32C /* DetailListBackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListBackgroundViewModel.swift; sourceTree = "<group>"; };
 		8E8164932A3781520068E49E /* FindHospital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindHospital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8164962A3781520068E49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E8164982A3781520068E49E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +223,9 @@
 			children = (
 				8E8164AA2A3781A20068E49E /* HPInfoViewController.swift */,
 				8E2DEB812A3AEB2A00D4A32C /* HPInfoViewModel.swift */,
+				8E2DEB852A41CA9E00D4A32C /* DetailListCell.swift */,
+				8E2DEB872A41CC5700D4A32C /* DetailListBackgroundView.swift */,
+				8E2DEB892A41CCD000D4A32C /* DetailListBackgroundViewModel.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -416,9 +425,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2DEB712A3AE6CF00D4A32C /* LocationData.swift in Sources */,
+				8E2DEB882A41CC5700D4A32C /* DetailListBackgroundView.swift in Sources */,
+				8E2DEB8A2A41CCD000D4A32C /* DetailListBackgroundViewModel.swift in Sources */,
 				8E2DEB732A3AE71000D4A32C /* KLDocument.swift in Sources */,
 				8E2DEB822A3AEB2A00D4A32C /* HPInfoViewModel.swift in Sources */,
 				8E2DEB842A3AF24900D4A32C /* MTMapViewError.swift in Sources */,
+				8E2DEB862A41CA9E00D4A32C /* DetailListCell.swift in Sources */,
 				8E8164972A3781520068E49E /* AppDelegate.swift in Sources */,
 				8E8164992A3781520068E49E /* SceneDelegate.swift in Sources */,
 				8E2DEB752A3AE7E600D4A32C /* DetailListCellData.swift in Sources */,
