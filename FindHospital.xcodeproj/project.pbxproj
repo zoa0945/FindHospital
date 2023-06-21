@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DAFA23AC92B1658DB46AEBA /* Pods_FindHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C221BB9F7FB6F3A6B5CFFB96 /* Pods_FindHospital.framework */; };
+		8E08AF272A43337200B56824 /* LocalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08AF262A43337200B56824 /* LocalAPI.swift */; };
+		8E08AF2A2A4335BC00B56824 /* LocalNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08AF292A4335BC00B56824 /* LocalNetwork.swift */; };
 		8E2DEB442A3AE22D00D4A32C /* map_pinup_custom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E2DEB1F2A3AE22D00D4A32C /* map_pinup_custom@3x.png */; };
 		8E2DEB452A3AE22D00D4A32C /* map_pin_custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E2DEB202A3AE22D00D4A32C /* map_pin_custom.png */; };
 		8E2DEB462A3AE22D00D4A32C /* shadow_balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E2DEB212A3AE22D00D4A32C /* shadow_balloon.png */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		432D6A3C7566DBA8DD4BC4ED /* Pods-FindHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindHospital.debug.xcconfig"; path = "Target Support Files/Pods-FindHospital/Pods-FindHospital.debug.xcconfig"; sourceTree = "<group>"; };
 		658DD4699B2358B2CC5FB035 /* Pods-FindHospital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindHospital.release.xcconfig"; path = "Target Support Files/Pods-FindHospital/Pods-FindHospital.release.xcconfig"; sourceTree = "<group>"; };
+		8E08AF262A43337200B56824 /* LocalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAPI.swift; sourceTree = "<group>"; };
+		8E08AF292A4335BC00B56824 /* LocalNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetwork.swift; sourceTree = "<group>"; };
 		8E2DEB1F2A3AE22D00D4A32C /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		8E2DEB202A3AE22D00D4A32C /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		8E2DEB212A3AE22D00D4A32C /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E08AF282A43337900B56824 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E08AF262A43337200B56824 /* LocalAPI.swift */,
+				8E08AF292A4335BC00B56824 /* LocalNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8E2DEB1D2A3AE22D00D4A32C /* DaumMap.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,11 +234,8 @@
 		8E2DEB6F2A3AE67E00D4A32C /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				8E8164AA2A3781A20068E49E /* HPInfoViewController.swift */,
-				8E2DEB812A3AEB2A00D4A32C /* HPInfoViewModel.swift */,
-				8E2DEB852A41CA9E00D4A32C /* DetailListCell.swift */,
-				8E2DEB872A41CC5700D4A32C /* DetailListBackgroundView.swift */,
-				8E2DEB892A41CCD000D4A32C /* DetailListBackgroundViewModel.swift */,
+				8E2DEB8B2A4332EE00D4A32C /* HPInfoView */,
+				8E2DEB8C2A4332F800D4A32C /* DetailListView */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -239,6 +249,25 @@
 				8E2DEB832A3AF24900D4A32C /* MTMapViewError.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		8E2DEB8B2A4332EE00D4A32C /* HPInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				8E8164AA2A3781A20068E49E /* HPInfoViewController.swift */,
+				8E2DEB812A3AEB2A00D4A32C /* HPInfoViewModel.swift */,
+			);
+			path = HPInfoView;
+			sourceTree = "<group>";
+		};
+		8E2DEB8C2A4332F800D4A32C /* DetailListView */ = {
+			isa = PBXGroup;
+			children = (
+				8E2DEB852A41CA9E00D4A32C /* DetailListCell.swift */,
+				8E2DEB872A41CC5700D4A32C /* DetailListBackgroundView.swift */,
+				8E2DEB892A41CCD000D4A32C /* DetailListBackgroundViewModel.swift */,
+			);
+			path = DetailListView;
 			sourceTree = "<group>";
 		};
 		8E81648A2A3781510068E49E = {
@@ -265,6 +294,7 @@
 				8E2DEB6E2A3AE43400D4A32C /* BridgingHeader.h */,
 				8E8164962A3781520068E49E /* AppDelegate.swift */,
 				8E8164982A3781520068E49E /* SceneDelegate.swift */,
+				8E08AF282A43337900B56824 /* Network */,
 				8E2DEB762A3AE81700D4A32C /* Entity */,
 				8E2DEB6F2A3AE67E00D4A32C /* Scene */,
 				8E81649F2A3781540068E49E /* Assets.xcassets */,
@@ -428,8 +458,10 @@
 				8E2DEB882A41CC5700D4A32C /* DetailListBackgroundView.swift in Sources */,
 				8E2DEB8A2A41CCD000D4A32C /* DetailListBackgroundViewModel.swift in Sources */,
 				8E2DEB732A3AE71000D4A32C /* KLDocument.swift in Sources */,
+				8E08AF2A2A4335BC00B56824 /* LocalNetwork.swift in Sources */,
 				8E2DEB822A3AEB2A00D4A32C /* HPInfoViewModel.swift in Sources */,
 				8E2DEB842A3AF24900D4A32C /* MTMapViewError.swift in Sources */,
+				8E08AF272A43337200B56824 /* LocalAPI.swift in Sources */,
 				8E2DEB862A41CA9E00D4A32C /* DetailListCell.swift in Sources */,
 				8E8164972A3781520068E49E /* AppDelegate.swift in Sources */,
 				8E8164992A3781520068E49E /* SceneDelegate.swift in Sources */,
