@@ -10,6 +10,7 @@
 		0DAFA23AC92B1658DB46AEBA /* Pods_FindHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C221BB9F7FB6F3A6B5CFFB96 /* Pods_FindHospital.framework */; };
 		8E08AF272A43337200B56824 /* LocalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08AF262A43337200B56824 /* LocalAPI.swift */; };
 		8E08AF2A2A4335BC00B56824 /* LocalNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08AF292A4335BC00B56824 /* LocalNetwork.swift */; };
+		8E08AF2C2A4338F600B56824 /* HPInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08AF2B2A4338F600B56824 /* HPInfoModel.swift */; };
 		8E2DEB442A3AE22D00D4A32C /* map_pinup_custom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E2DEB1F2A3AE22D00D4A32C /* map_pinup_custom@3x.png */; };
 		8E2DEB452A3AE22D00D4A32C /* map_pin_custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E2DEB202A3AE22D00D4A32C /* map_pin_custom.png */; };
 		8E2DEB462A3AE22D00D4A32C /* shadow_balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E2DEB212A3AE22D00D4A32C /* shadow_balloon.png */; };
@@ -65,6 +66,7 @@
 		658DD4699B2358B2CC5FB035 /* Pods-FindHospital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindHospital.release.xcconfig"; path = "Target Support Files/Pods-FindHospital/Pods-FindHospital.release.xcconfig"; sourceTree = "<group>"; };
 		8E08AF262A43337200B56824 /* LocalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAPI.swift; sourceTree = "<group>"; };
 		8E08AF292A4335BC00B56824 /* LocalNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetwork.swift; sourceTree = "<group>"; };
+		8E08AF2B2A4338F600B56824 /* HPInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPInfoModel.swift; sourceTree = "<group>"; };
 		8E2DEB1F2A3AE22D00D4A32C /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		8E2DEB202A3AE22D00D4A32C /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		8E2DEB212A3AE22D00D4A32C /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				8E8164AA2A3781A20068E49E /* HPInfoViewController.swift */,
 				8E2DEB812A3AEB2A00D4A32C /* HPInfoViewModel.swift */,
+				8E08AF2B2A4338F600B56824 /* HPInfoModel.swift */,
 			);
 			path = HPInfoView;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				8E8164992A3781520068E49E /* SceneDelegate.swift in Sources */,
 				8E2DEB752A3AE7E600D4A32C /* DetailListCellData.swift in Sources */,
 				8E8164AB2A3781A20068E49E /* HPInfoViewController.swift in Sources */,
+				8E08AF2C2A4338F600B56824 /* HPInfoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
