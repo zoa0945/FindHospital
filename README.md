@@ -153,3 +153,4 @@ class HPInfoViewController: UIViewController {
 <br>
 
 ## 📱 UI
+<img width="303" alt="스크린샷 2023-06-27 오전 12 04 29" src="https://github.com/zoa0945/FindHospital/assets/51810980/2e957f20-298d-4ec8-8da4-07e965c73331">
