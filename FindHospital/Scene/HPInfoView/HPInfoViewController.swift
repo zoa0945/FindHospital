@@ -121,9 +121,8 @@ class HPInfoViewController: UIViewController {
 
 extension HPInfoViewController: CLLocationManagerDelegate {
     // 사용자의 위치정보 제공에 대한 승인 상태
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        // 위치정보를 항상 제공하거나, 사용 중일때만 제공하거나, 별도의 설정이 없을 때
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
         case .authorizedAlways,
              .authorizedWhenInUse,
              .notDetermined:

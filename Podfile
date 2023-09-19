@@ -10,4 +10,11 @@ target 'FindHospital' do
 	pod 'RxCocoa'
 	pod 'SnapKit'
 
+  target 'FindHospitalTests' do
+	pod 'Stubber'
+	pod 'Nimble'
+	pod 'RxBlocking'
+	pod 'RxTest'
+  end
+
 end
